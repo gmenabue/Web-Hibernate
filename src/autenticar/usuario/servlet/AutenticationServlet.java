@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javafx.scene.control.Alert;
 import jdbc.clase.DTO.UsuarioDTO;
 
 
@@ -72,26 +73,27 @@ public class AutenticationServlet extends HttpServlet {
 		try {
 			//Creo un Statement
 			stmt = connection.createStatement();
-			//Me creo un preparedStatement para darle valor a la ?
-			PreparedStatement pstmt = connection.prepareStatement("select * from users WHERE USER_NAME = ? and USER_PASS = ?");     
-			//Le doy el valor a la 1ª ?
-			pstmt.setString(1, nombre);
-			//Le doy el valor a la 2ª ?
-			pstmt.setString(2, password);
 			//Ejecuto la Query
-			rset = pstmt.executeQuery();
+			rset = stmt.executeQuery("select * from USERS WHERE NAME = '" + nombre + "' and PASSWORD = '" + password +"'");
+			
 			
 			//Recorro el ResultSet
 			if (rset.next())
 			{
 				//Compongo el objeto 
 				usuario1 = componerObjeto(rset);
+				System.out.println(usuario1.getUSER_NAME());
+				System.out.println(nombre);
+				System.out.println(usuario1.getUSER_PASS());
+				System.out.println(password);
 		
-				if(usuario1.getUSER_NAME().equals(nombre)){
-						if(usuario1.getUSER_PASS().equals(password)){
+				if(null != usuario1){
+						//if(usuario1.getUSER_PASS().equals(password)){
 							out.println("Inicio De Sesión Correcto<br>" + "<br> Se Ha logueado correctamente");
 							System.out.println("Se ha logueado");
 							log.info("Usuario Se Ha Logueado Con Exito");
+							//response.sendRedirect("indexlogueado.html");
+							
 							//Despues de loguear correctamente le damos una session
 							//al usuario que se ha logueado
 							if(null == (httpsession = request.getSession(false))){
@@ -106,7 +108,8 @@ public class AutenticationServlet extends HttpServlet {
 
 							httpsession.setAttribute("nombre", nombre);
 							//log.info(httpsession.getAttribute("nombre"));
-						}
+							request.getRequestDispatcher("/indexlogueado.html").forward(request, response);
+						//}
 					}
 			}
 			else {
@@ -114,6 +117,8 @@ public class AutenticationServlet extends HttpServlet {
 					out.println("Usuario o Contraseña Incorrecto<br>" + "<br> No se ha logueado");
 					System.out.println("No se ha logueado");
 					log.info("Usuario o Contraseña Incorrectos");
+					//response.sendRedirect("indexnologueado.html");
+					request.getRequestDispatcher("/indexnologueado.html").forward(request, response);
 			}
 		}
 		
@@ -124,7 +129,7 @@ public class AutenticationServlet extends HttpServlet {
 		finally{
 			Pool.liberarRecursos(connection, stmt, rset);
 		}
-		response.sendRedirect("indexlogueado.html");
+		//response.sendRedirect("indexlogueado.html");
 		//request.getRequestDispatcher("/sesionesActivasServlet").include(request, response);
 		
 
