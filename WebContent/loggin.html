@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<P>Para Loguearse En El Servidor</P>
+
+<form 	action="AutenticationServlet" method="post">
+
+		<P>INTRODUZCA USUARIO</P>
+		<input type="text" name="nombre"/>
+		<P>INTRODUZCA CONTRASEÑA</P>
+		<input type="password" name="password"/>
+		<br>
+		<br>
+		<input type="submit" value="Iniciar Sesión"/>
+		
+</form>
+
+<form 	action="Logout" method="get">
+
+		<P>PULSA CERRAR SESION</P>
+		
+		<input type="submit" value="Cerrar Sesión"/>
+		
+</form>
+ 
+<form 	action="PrimeraSessionServlet" method="get">
+
+		<P>CREAR NUEVA SESSION</P>
+		
+		<input type="submit" value="Nueva Session"/>
+		
+</form>
+
+
+<form 	action="sesionesActivasServlet" method="get">
+
+		<P>PULSA PARA CONOCER LAS SESIONES ACTIVAS</P>
+		
+		<input type="submit" value="Sesiones Activas"/>
+		
+</form>
+
+<form 	action="recuperarDepartamentosServlet" method="get">
+
+		<P>PULSA PARA CONSULTAR DEPARTAMENTOS</P>
+		
+		<input type="submit" value="Consultar Departamentos"/>
+		
+</form>
+
+<form 	action="ServletRedirect" method="get">
+
+		<P>PULSA PARA IR A MI GITHUB</P>
+		
+		<input type="submit" value="Ir"/>
+		
+</form>
+
+
+</body>
+</html>

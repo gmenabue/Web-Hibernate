@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WebHibernate</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- Comienzo de los servlets -->
+  
+  <!-- Servlet Para Usar Hibernate -->
+  <servlet>
+    <description>Web Hibernate</description>
+    <display-name>hibernateServlet</display-name>
+    <servlet-name>hibernateServlet</servlet-name>
+    <servlet-class>hibernate.servlets.hibernateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hibernateServlet</servlet-name>
+    <url-pattern>/hibernateServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Recuperar Empleado -->
+  <servlet>
+    <description>Ejemplo De Empleado</description>
+    <display-name>ServletRecuperarEmpleado</display-name>
+    <servlet-name>ServletRecuperarEmpleado</servlet-name>
+    <servlet-class>jdbc.servlet.ServletRecuperarEmpleado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRecuperarEmpleado</servlet-name>
+    <url-pattern>/ServletRecuperarEmpleado</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Subir Salario Empleado -->
+  <servlet>
+    <description>Ejemplo De Empleado</description>
+    <display-name>IncrementarSalarioServlet</display-name>
+    <servlet-name>IncrementarSalarioServlet</servlet-name>
+    <servlet-class>incrementar.salario.servlet.IncrementarSalarioServlet</servlet-class>
+    <init-param>
+      <param-name>IncrementoSalario</param-name>
+      <param-value>1.2</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IncrementarSalarioServlet</servlet-name>
+    <url-pattern>/IncrementarSalarioServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Iniciar Sesión -->
+  <servlet>
+    <description>Autenticar Usuario</description>
+    <display-name>AutenticationServlet</display-name>
+    <servlet-name>AutenticationServlet</servlet-name>
+    <servlet-class>autenticar.usuario.servlet.AutenticationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutenticationServlet</servlet-name>
+    <url-pattern>/AutenticationServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Crear Una Sesión -->
+  <servlet>
+    <description>Primera Session</description>
+    <display-name>PrimeraSessionServlet</display-name>
+    <servlet-name>PrimeraSessionServlet</servlet-name>
+    <servlet-class>examples.primeraSession.PrimeraSessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrimeraSessionServlet</servlet-name>
+    <url-pattern>/PrimeraSessionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Ver Las Sesiones Activas -->
+  <servlet>
+    <description>Sesiones Activas</description>
+    <display-name>sesionesActivasServlet</display-name>
+    <servlet-name>sesionesActivasServlet</servlet-name>
+    <servlet-class>sesiones.activas.servlet.sesionesActivasServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sesionesActivasServlet</servlet-name>
+    <url-pattern>/sesionesActivasServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Recuperar Departamentos -->
+  <servlet>
+    <description>Recuperar Departamentos</description>
+    <display-name>recuperarDepartamentosServlet</display-name>
+    <servlet-name>recuperarDepartamentosServlet</servlet-name>
+    <servlet-class>recuperar.departamentos.servlet.recuperarDepartamentosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>recuperarDepartamentosServlet</servlet-name>
+    <url-pattern>/recuperarDepartamentosServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Redireccionar -->
+  <servlet>
+    <description>Servlet Redirect</description>
+    <display-name>ServletRedirect</display-name>
+    <servlet-name>ServletRedirect</servlet-name>
+    <servlet-class>examples.servlet.redirect.ServletRedirect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRedirect</servlet-name>
+    <url-pattern>/ServletRedirect</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Cerrar Sesión -->
+  <servlet>
+    <description>Logout</description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>logout.usuario.servlet.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Recuperar Los Resultados De La Liga Española -->
+  <servlet>
+    <description>LigaEspanolaServlet</description>
+    <display-name>LigaEspanolaServlet</display-name>
+    <servlet-name>LigaEspanolaServlet</servlet-name>
+    <servlet-class>servlet.liga.espanola.LigaEspanolaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LigaEspanolaServlet</servlet-name>
+    <url-pattern>/LigaEspanolaServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Lanzar Una Excepción -->
+  <servlet>
+    <description>ExceptionServlet</description>
+    <display-name>ExceptionServlet</display-name>
+    <servlet-name>ExceptionServlet</servlet-name>
+    <servlet-class>examples.exception.servlet.ExceptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExceptionServlet</servlet-name>
+    <url-pattern>/ExceptionServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Ver La Hora En JSP -->
+  <servlet>
+    <description>JSPhoraServlet</description>
+    <display-name>JSPhoraServlet</display-name>
+    <servlet-name>JSPhoraServlet</servlet-name>
+    <servlet-class>examples.hora.servlet.JSPhoraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JSPhoraServlet</servlet-name>
+    <url-pattern>/JSPhoraServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Recuperar Empleados -->
+  <servlet>
+    <description>RecuperarEmpleadosServlet</description>
+    <display-name>RecuperarEmpleadosServlet</display-name>
+    <servlet-name>RecuperarEmpleadosServlet</servlet-name>
+    <servlet-class>recuperar.empleados.servlet.RecuperarEmpleadosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecuperarEmpleadosServlet</servlet-name>
+    <url-pattern>/RecuperarEmpleadosServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Servlet Para Subir Una Imagen -->
+  <servlet>
+    <servlet-name>upload</servlet-name>
+    <servlet-class>examples.uploadfiles.UploadFileExample</servlet-class>
+    <init-param><param-name>RUTA_SUBIDA_FICHEROS</param-name><param-value>C:\logs</param-value></init-param>
+    <multipart-config>
+      <max-file-size>3145728</max-file-size>
+      <max-request-size>5242880</max-request-size>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload</servlet-name>
+    <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <!-- Fin de los servlets -->
+  
+  <!-- Inicio De Los Listeners -->
+  <listener>
+    <listener-class>hibernate.examples.listeners.HibernateContextListener</listener-class>
+  </listener>
+  
+  <listener>
+    <listener-class>hibernate.examples.listeners.HibernateSessionListener</listener-class>
+  </listener>
+  
+  <listener>
+    <listener-class>hibernate.examples.listeners.HibernateRequestListener</listener-class>
+  </listener>
+  <!-- Fin De Los Listeners -->
+  
+  <!-- Inicio De Los Filtros -->
+  <filter>
+    <filter-name>FiltersExamples</filter-name>
+    <filter-class>examples.filter.FiltersExamples</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FiltersExamples</filter-name>
+    <url-pattern>/hibernateServlet</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>FilterJDBC</filter-name>
+    <filter-class>examples.filter.FilterJDBC</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>FilterJDBC</filter-name>
+    <url-pattern>/ServletRecuperarEmpleado</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>ControlDeAcceso</filter-name>
+    <filter-class>examples.filter.ControlDeAcceso</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ControlDeAcceso</filter-name>
+    <url-pattern></url-pattern>
+  </filter-mapping>
+  <!-- Fin De Los Filtros -->
+  
+  <!-- Inicia Un Objeto En El Contexto -->
+  <context-param>
+    <param-name>Contador</param-name>
+    <param-value>contador</param-value>
+  </context-param>
+  
+  <!-- Configura La Sesion -->
+  <session-config>
+    <session-timeout>20</session-timeout>
+  </session-config>
+  
+  <!-- Cuando Hay Un Error Me Redirige A ExeptionServlet -->
+  <error-page>
+    <exception-type> javax.servlet.ServletException </exception-type>
+    <location>/ExceptionServlet</location>
+  </error-page>
+</web-app>
